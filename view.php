@@ -1,11 +1,11 @@
 <?php
-
+// please add timezone for country time
 /////////////////////////////////////////////////////////////////////
 // This is the only portion of the code you may need to change.
 // Indicate the location of your images 
 $root = '';
 // use if specifying path from root
-//$root = $_SERVER['DOCUMENT_ROOT'];
+//$root = $_SERVER['DOCUMENT_ROOT']."/gobi/pub";
 
 $path = 'images/';
 
@@ -45,7 +45,7 @@ $img = getRandomFromArray($imgList);
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Demo</title>
+    <title>Pub</title>
     <!--[if IE]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
@@ -75,7 +75,7 @@ $img = getRandomFromArray($imgList);
                 </a>
                 <a href="javascript:;" class="list-group-item list-group-item-action flex-column align-items-start">
                     <div class="d-flex w-100 justify-content-between">
-                        <h6 class="mb-1"><b>Your Name</b> &nbsp; <?php echo $_POST["name"];  ?></h6>
+                        <h6 class="mb-1"><b>Hi </b> &nbsp; <?php echo ucwords(strtolower($_POST["name"]));  ?>,</h6>
                     </div>
                     
                 </a>
@@ -85,7 +85,7 @@ $img = getRandomFromArray($imgList);
                     </div>
                     <p class="mb-1"><img class="img-fluid" src="<?php echo $path . $img ?>"></p>
                 </a>
-                <p><small><?php echo date('D-M-Y H:i l'); ?></small></p>  
+                <p><small><?php echo date('d-M-Y H:i a'); ?></small></p>  
             </div>
 
        

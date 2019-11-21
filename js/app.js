@@ -35009,7 +35009,95 @@ try {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-// Custom Scripts
+// Custom Scripts 
+document.addEventListener('contextmenu', function (event) {
+  return event.preventDefault();
+});
+document.addEventListener("contextmenu", function (e) {
+  if (e.target.nodeName === "IMG") {
+    e.preventDefault();
+  }
+}, false);
+
+document.onkeypress = function (event) {
+  event = event || window.event;
+
+  if (event.keyCode == 123) {
+    //alert(‘No F-12’);
+    return false;
+  }
+};
+
+document.onmousedown = function (event) {
+  event = event || window.event;
+
+  if (event.keyCode == 123) {
+    //alert(‘No F-keys’);
+    return false;
+  }
+};
+
+document.onkeydown = function (event) {
+  event = event || window.event;
+
+  if (event.keyCode == 123) {
+    //alert(‘No F-keys’);
+    return false;
+  }
+};
+
+document.onkeydown = function (e) {
+  if (e.ctrlKey && (e.keyCode === 67 || e.keyCode === 86 || e.keyCode === 85 || e.keyCode === 117)) {
+    // alert('not allowed');
+    return false;
+  } else {
+    return true;
+  }
+};
+
+window.onload = function () {
+  document.addEventListener("contextmenu", function (e) {
+    e.preventDefault();
+  }, false);
+  document.addEventListener("keydown", function (e) {
+    //document.onkeydown = function(e) {
+    // "I" key
+    if (e.ctrlKey && e.shiftKey && e.keyCode == 73) {
+      disabledEvent(e);
+    } // "J" key
+
+
+    if (e.ctrlKey && e.shiftKey && e.keyCode == 74) {
+      disabledEvent(e);
+    } // "S" key + macOS
+
+
+    if (e.keyCode == 83 && (navigator.platform.match("Mac") ? e.metaKey : e.ctrlKey)) {
+      disabledEvent(e);
+    } // "U" key
+
+
+    if (e.ctrlKey && e.keyCode == 85) {
+      disabledEvent(e);
+    } // "F12" key
+
+
+    if (event.keyCode == 123) {
+      disabledEvent(e);
+    }
+  }, false);
+
+  function disabledEvent(e) {
+    if (e.stopPropagation) {
+      e.stopPropagation();
+    } else if (window.event) {
+      window.event.cancelBubble = true;
+    }
+
+    e.preventDefault();
+    return false;
+  }
+};
 
 /***/ }),
 
